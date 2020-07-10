@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 
-export const PageHome = styled.div``
-
 export const Banner = styled.div`
-	background: purple;
+	background: ${(props) => props.theme.primaryColor};
 	height: 150px;
+`
+export const PageHome = styled.div`
+	.box {
+		height: 600px;
+		display: block;
+		border: 1px solid blue;
+	}
 `
