@@ -9,9 +9,26 @@ export default createGlobalStyle`
 }
 
 body {
-	background: #f5f5f5;
-	color: #66625c;
+	background: #F5F9FC;
+	color: #333;
 	-webkit-font-smoothing: antialiased;
+}
+
+body, #root {
+	display: flex;
+	flex-direction: column;
+}
+
+#root {
+	height: auto;
+
+	@media (min-width: 768px){
+		min-height: 100vh;
+	}
+}
+
+footer {
+	margin-top: auto;
 }
 
 body, input, button {

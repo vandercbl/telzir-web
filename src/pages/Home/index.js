@@ -1,11 +1,23 @@
 import React from 'react'
-import { PageHome } from './styles'
+import { PageHome, Banner } from './styles'
+
+import Header from './../../components/Header'
+import Footer from '../../components/Footer'
 
 function Home() {
 	return (
-		<PageHome>
-			<h1>Home</h1>
-		</PageHome>
+		<>
+			{/* <div className="content"> */}
+			<Header />
+			<Banner></Banner>
+			<PageHome>
+				<div className="container">
+					<h1>Home</h1>
+				</div>
+			</PageHome>
+			{/* </div> */}
+			<Footer />
+		</>
 	)
 }
 

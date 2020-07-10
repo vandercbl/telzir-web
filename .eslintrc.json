@@ -1,35 +1,36 @@
 {
-	"env": {
-			"browser": true,
-			"es6": true
-	},
-	"extends": [
-			"plugin:react/recommended",
-			"standard",
-			"plugin:prettier/recommended"
-	],
-	"globals": {
-			"Atomics": "readonly",
-			"SharedArrayBuffer": "readonly"
-	},
-	"parserOptions": {
-			"ecmaFeatures": {
-					"jsx": true
-			},
-			"ecmaVersion": 11,
-			"sourceType": "module"
-	},
-	"plugins": [
-			"react",
-			"react-hooks",
-			"prettier"
-	],
-	"rules": {
-		"react-hooks/rules-of-hooks": "error",
-		"react/jsx-one-expression-per-line": "off",
-		"react-hooks/exhaustive-deps": "warn",
-		"import/prefer-default-export": "off",
-		"prettier/prettier": "error",
-		"react/prop-types": 0
-	}
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+				"standard",
+				"plugin:prettier/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+				"react",
+				"react-hooks",
+				"prettier"
+    ],
+    "rules": {
+			"react-hooks/rules-of-hooks": "error",
+			"react/jsx-one-expression-per-line": "off",
+			"react-hooks/exhaustive-deps": "warn",
+			"import/prefer-default-export": "off",
+			"prettier/prettier": "error",
+			"react/prop-types": 0,
+			"react/react-in-jsx-scope": "off"
+		 }
 }
