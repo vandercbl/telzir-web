@@ -1,9 +1,15 @@
-import React from 'react';
+import React from 'react'
+
+import GlobalStyle from './styles/global'
+import Routes from './routes'
 
 function App() {
-  return (
-		<h1>Teste Setup</h1>
-	);
+	return (
+		<>
+			<GlobalStyle />
+			<Routes />
+		</>
+	)
 }
 
-export default App;
+export default App

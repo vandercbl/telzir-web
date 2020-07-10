@@ -1,9 +1,9 @@
 root = true
 
 [*]
-end_of_line = lf #padrozina quebra de linha para windows e linux
+end_of_line = lf
 indent_style = tab
 indent_size = 2
 charset = utf-8
-trim_trailing_whitespace = true #retira espaços do final da linha
-insert_final_newline = true #adiciona uma linha em branco no final do código
+trim_trailing_whitespace = true
+insert_final_newline = true
