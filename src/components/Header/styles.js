@@ -7,6 +7,10 @@ export const ContainerHeader = styled.header`
 		justify-content: space-between;
 	}
 
+	.company-name {
+		display: none;
+	}
+
 	nav {
 		a {
 			display: inline-block;

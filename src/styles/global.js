@@ -47,7 +47,6 @@ button {
 	/* display: flex;
 	width: 100%; */
 	position: relative;
-	border: 1px solid red;
 }
 
 `

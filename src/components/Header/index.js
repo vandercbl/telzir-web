@@ -5,25 +5,15 @@ import { ContainerHeader } from './styles'
 
 import logoTelzir from '../../assets/logo-telzir.png'
 
-function Header({ plans }) {
-	const handleClick = (keyRef, e) => {
-		e.preventDefault()
-		keyRef.current.scrollIntoView({
-			behavior: 'smooth',
-			block: 'start',
-		})
-	}
-
+function Header() {
 	return (
 		<ContainerHeader>
 			<div className="container">
+				<h1 className="company-name">Telzir</h1>
 				<img src={logoTelzir} width={50} alt="Logo Telzir" />
 				<nav>
 					<Link to="/">Home</Link>
-					<Link to="/comparacao-planos">Comparação de Planos</Link>
-					<a href="/" onClick={(e) => handleClick(plans[2], e)}>
-						Plan 1
-					</a>
+					<Link to="/simulacao">Simulação</Link>
 				</nav>
 			</div>
 		</ContainerHeader>

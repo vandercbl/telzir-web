@@ -1,34 +1,56 @@
 import React, { createRef } from 'react'
 
 import Header from './../../components/Header'
+import Banner from '../../components/Banner'
 import Footer from '../../components/Footer'
+import Table from '../../components/Table'
 
-import { PageHome, Banner } from './styles'
+import priceDDD from '../../store/price-ddd'
+import plans from '../../store/plans'
+
+import { PageHome, CardPlan } from './styles'
 
 function Home() {
-	const ref1 = createRef()
-	const ref2 = createRef()
-	const ref3 = createRef()
-
-	const refs = [ref1, ref2, ref3]
+	const refAncora = createRef()
 
 	return (
 		<>
-			<Header plans={refs} />
-			<Banner></Banner>
+			<Header />
+			<Banner>
+				<h2>Especialistas em chamadas de longa distância nacional</h2>
+			</Banner>
 			<PageHome>
 				<div className="container">
-					<h1>Home</h1>
+					<h2>Nossos Planos</h2>
+					<section className="plans">
+						{plans.map((plan) => (
+							<CardPlan key={plan.id}>
+								<h3>{plan.name}</h3>
+								<p>{plan.description}</p>
+								<button>Assine já</button>
+							</CardPlan>
+						))}
+					</section>
 
-					<div ref={ref1} id="plan-1" className="box">
-						plan-1
-					</div>
-					<div ref={ref2} id="plan-2" className="box">
-						plan-2
-					</div>
-					<div ref={ref3} id="plan-3" className="box">
-						plan-3
-					</div>
+					<h2 ref={refAncora}>Custos para ligações DDD</h2>
+					<Table>
+						<thead>
+							<tr>
+								<th>Origem</th>
+								<th>Destino</th>
+								<th>$/min</th>
+							</tr>
+						</thead>
+						<tbody>
+							{priceDDD.map((ddd) => (
+								<tr key={ddd.id}>
+									<td>{ddd.origin}</td>
+									<td>{ddd.destiny}</td>
+									<td>{ddd.price}</td>
+								</tr>
+							))}
+						</tbody>
+					</Table>
 				</div>
 			</PageHome>
 			<Footer />
