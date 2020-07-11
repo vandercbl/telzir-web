@@ -6,6 +6,8 @@ import Header from './../../components/Header'
 import Banner from '../../components/Banner'
 import Footer from '../../components/Footer'
 
+import simulator from '../../utils/simulator'
+
 import codesDDD from '../../store/codes-ddd'
 import plans from '../../store/plans'
 
@@ -36,9 +38,8 @@ function ComparePlan() {
 		plan: yup.string().required('Plano obrigatório'),
 	})
 
-	const handlSubmit = useCallback((values) => {
-		console.log('submit form')
-		console.log(values)
+	const handlSubmit = useCallback(({ origin, destiny, minutes, plan }) => {
+		simulator(origin, destiny, minutes, plan)
 	}, [])
 
 	return (
@@ -67,7 +68,9 @@ function ComparePlan() {
 										<Field as="select" name="origin">
 											<option value=""></option>
 											{codesDDD.map((ddd) => (
-												<option key={ddd.id}>{ddd.code}</option>
+												<option key={ddd.id} value={ddd.code}>
+													{ddd.code}
+												</option>
 											))}
 										</Field>
 										<ErrorMessage name="origin" component="span" />
@@ -78,7 +81,9 @@ function ComparePlan() {
 										<Field as="select" name="destiny">
 											<option value=""></option>
 											{codesDDD.map((ddd) => (
-												<option key={ddd.id}>{ddd.code}</option>
+												<option key={ddd.id} value={ddd.code}>
+													{ddd.code}
+												</option>
 											))}
 										</Field>
 										<ErrorMessage name="destiny" component="span" />
@@ -95,7 +100,9 @@ function ComparePlan() {
 										<Field as="select" name="plan">
 											<option value=""></option>
 											{plans.map((plan) => (
-												<option key={plan.id}>{plan.name}</option>
+												<option key={plan.id} value={plan.name}>
+													{plan.name}
+												</option>
 											))}
 										</Field>
 										<ErrorMessage name="plan" component="span" />
