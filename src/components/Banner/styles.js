@@ -32,11 +32,16 @@ export const ContainerBanner = styled.div`
 		justify-content: center;
 	}
 
-	h2 {
+	h3 {
 		font-weight: 300;
-		font-size: 2.2rem;
-		width: 70%;
+		font-size: 1.7rem;
+		width: 85%;
 		text-shadow: 1px 2px 1px #333;
 		text-align: center;
+
+		@media (min-width: 768px) {
+			width: 70%;
+			font-size: 2.2rem;
+		}
 	}
 `

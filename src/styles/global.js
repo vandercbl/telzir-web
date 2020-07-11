@@ -21,6 +21,7 @@ body, #root {
 
 #root {
 	height: auto;
+	min-height: 100vh;
 
 	@media (min-width: 768px){
 		min-height: 100vh;
@@ -31,13 +32,30 @@ footer {
 	margin-top: auto;
 }
 
-body, input, button {
+body, input, button, select {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
+	color: #333;
 }
 
 button {
 	cursor: pointer;
+	border: 0;
+	background: ${(props) => props.theme.secundaryColor};
+	color: #fff;
+	padding: 8px 16px;
+	border-radius: 10px;
+	transition: all 0.3s;
+
+	&:hover {
+		background: ${(props) => props.theme.secundaryColorHover};
+	}
+}
+
+h2 {
+	font-weight: 500;
+	font-size: 1.8rem;
+	margin: 16px 0;
 }
 
 .container {

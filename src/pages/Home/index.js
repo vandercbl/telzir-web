@@ -17,7 +17,7 @@ function Home() {
 		<>
 			<Header />
 			<Banner>
-				<h2>Especialistas em chamadas de longa distância nacional</h2>
+				<h3>Especialistas em chamadas de longa distância nacional</h3>
 			</Banner>
 			<PageHome>
 				<div className="container">
