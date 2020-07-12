@@ -1,15 +1,17 @@
 import simulator from '../utils/simulator'
 
 const values = {
-	origin: '011',
-	destiny: '016',
-	minutes: 12,
+	origin: '016',
+	destiny: '011',
+	minutes: 2,
 	plan: 'FaleMais 30',
 }
 
 describe('Simulador de planos', () => {
 	it('Deve retornar a diferença entre os planos', () => {
 		const { origin, destiny, minutes, plan } = values
-		simulator(origin, destiny, minutes, plan)
+		const result = simulator(origin, destiny, minutes, plan)
+		console.log(result.totalWithPlan)
+		console.log(result.totalWithoutPlan)
 	})
 })

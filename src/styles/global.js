@@ -5,7 +5,6 @@ export default createGlobalStyle`
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	outline: 0;
 }
 
 body {
@@ -50,6 +49,11 @@ button {
 	&:hover {
 		background: ${(props) => props.theme.secundaryColorHover};
 	}
+	&:active {
+		outline: none;
+	}
+
+
 }
 
 h2 {

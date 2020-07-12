@@ -56,3 +56,29 @@ export const PageComparePlan = styled.div`
 		}
 	}
 `
+
+export const ResultSimulator = styled.div`
+	@media (max-width: 767px) {
+		table {
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			justify-content: center;
+
+			tr {
+				display: flex;
+				flex-direction: column;
+
+				td,
+				th {
+					border-radius: 0;
+
+					&:last-of-type,
+					&:first-of-type {
+						border-radius: 0;
+					}
+				}
+			}
+		}
+	}
+`

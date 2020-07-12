@@ -1,9 +1,11 @@
-import React, { createRef } from 'react'
+import React from 'react'
 
 import Header from './../../components/Header'
 import Banner from '../../components/Banner'
 import Footer from '../../components/Footer'
 import Table from '../../components/Table'
+
+import { formatValue } from '../../utils/formatValue'
 
 import priceDDD from '../../store/price-ddd'
 import plans from '../../store/plans'
@@ -11,8 +13,6 @@ import plans from '../../store/plans'
 import { PageHome, CardPlan } from './styles'
 
 function Home() {
-	const refAncora = createRef()
-
 	return (
 		<>
 			<Header />
@@ -32,7 +32,7 @@ function Home() {
 						))}
 					</section>
 
-					<h2 ref={refAncora}>Custos para ligações DDD</h2>
+					<h2>Custos para ligações DDD</h2>
 					<Table>
 						<thead>
 							<tr>
@@ -46,7 +46,7 @@ function Home() {
 								<tr key={ddd.id}>
 									<td>{ddd.origin}</td>
 									<td>{ddd.destiny}</td>
-									<td>{ddd.price}</td>
+									<td>{formatValue(ddd.price)}</td>
 								</tr>
 							))}
 						</tbody>
