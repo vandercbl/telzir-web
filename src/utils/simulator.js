@@ -1,5 +1,5 @@
-import listPlans from '../store/plans'
-import priceDDD from '../store/price-ddd'
+import listPlans from '../fake-data/plans'
+import priceDDD from '../fake-data/price-ddd'
 
 function simulator(origin, destiny, minutesCall, plan) {
 	const minutesPlan = timePlan(plan)

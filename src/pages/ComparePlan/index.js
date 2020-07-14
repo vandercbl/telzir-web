@@ -1,4 +1,5 @@
-import React, { useCallback, useState } from 'react'
+import React, { useEffect, useCallback, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as yup from 'yup'
 
@@ -10,23 +11,30 @@ import Table from '../../components/Table'
 import simulator from '../../utils/simulator'
 import { formatValue } from '../../utils/formatValue'
 
-// import codesDDD from '../../store/codes-ddd'
-import priceDDD from '../../store/price-ddd'
-import plans from '../../store/plans'
+import { getListPlansFetch } from '../../store/fetchAction/plans'
+import {
+	getListPriceDDDFetch,
+	getListOriginDDDFetch,
+} from '../../store/fetchAction/priceDDD'
+// import priceDDD from '../../fake-data/price-ddd'
+// import plans from '../../fake-data/plans'
 
 import { PageComparePlan, ResultSimulator } from './styles'
 
 function ComparePlan() {
-	const resumeOrigin = priceDDD.reduce(function (allCodes, code) {
-		if (!allCodes.includes(code.origin)) {
-			allCodes.push(code.origin)
-		}
-		return allCodes
-	}, [])
+	const dispatch = useDispatch()
+	const plans = useSelector((state) => state.plans.list)
+	const priceDDD = useSelector((state) => state.priceDDD.list)
+	const originOptions = useSelector((state) => state.priceDDD.originDDDs)
 
 	const [resultSimulator, setResultSimulator] = useState({})
-	const [originOptions] = useState(resumeOrigin)
 	const [destinyOptions, setDestinyOptions] = useState([])
+
+	useEffect(() => {
+		dispatch(getListPlansFetch())
+		dispatch(getListPriceDDDFetch())
+		dispatch(getListOriginDDDFetch())
+	}, [dispatch])
 
 	const formInitialValues = {
 		origin: '',
@@ -56,14 +64,17 @@ function ComparePlan() {
 		setResultSimulator(simulator(origin, destiny, minutes, plan))
 	}, [])
 
-	const handleOrigin = useCallback((e, Formik) => {
-		const selectedOrigin = e.target.value
-		Formik.setFieldValue(e.target.name, selectedOrigin)
-		const listDestiny = priceDDD.filter(
-			(item) => item.origin === selectedOrigin,
-		)
-		setDestinyOptions(listDestiny)
-	}, [])
+	const handleOrigin = useCallback(
+		(e, Formik) => {
+			const selectedOrigin = e.target.value
+			Formik.setFieldValue(e.target.name, selectedOrigin)
+			const listDestiny = priceDDD.filter(
+				(item) => item.origin === selectedOrigin,
+			)
+			setDestinyOptions(listDestiny)
+		},
+		[priceDDD],
+	)
 
 	return (
 		<>
@@ -95,16 +106,11 @@ function ComparePlan() {
 												onChange={(e) => handleOrigin(e, Formik)}
 											>
 												<option value=""></option>
-												{originOptions.map((ddd) => (
-													<option key={ddd} value={ddd}>
+												{originOptions.map((ddd, index) => (
+													<option key={ddd + index} value={ddd}>
 														{ddd}
 													</option>
 												))}
-												{/* {codesDDD.map((ddd) => (
-													<option key={ddd.id} value={ddd.code}>
-														{ddd.code}
-													</option>
-												))} */}
 											</Field>
 											<ErrorMessage name="origin" component="span" />
 										</div>
@@ -130,8 +136,8 @@ function ComparePlan() {
 											<label>Plano</label>
 											<Field as="select" name="plan">
 												<option value=""></option>
-												{plans.map((plan) => (
-													<option key={plan.id} value={plan.name}>
+												{plans.map((plan, index) => (
+													<option key={plan._id + index} value={plan.name}>
 														{plan.name}
 													</option>
 												))}

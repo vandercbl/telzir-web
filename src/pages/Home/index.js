@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Header from './../../components/Header'
 import Banner from '../../components/Banner'
@@ -7,12 +8,24 @@ import Table from '../../components/Table'
 
 import { formatValue } from '../../utils/formatValue'
 
-import priceDDD from '../../store/price-ddd'
-import plans from '../../store/plans'
+import { getListPlansFetch } from '../../store/fetchAction/plans'
+import { getListPriceDDDFetch } from '../../store/fetchAction/priceDDD'
+
+// import priceDDD from '../../fake-data/price-ddd'
+// import plans from '../../fake-data/plans'
 
 import { PageHome, CardPlan } from './styles'
 
 function Home() {
+	const dispatch = useDispatch()
+	const plans = useSelector((state) => state.plans.list)
+	const priceDDD = useSelector((state) => state.priceDDD.list)
+
+	useEffect(() => {
+		dispatch(getListPlansFetch())
+		dispatch(getListPriceDDDFetch())
+	}, [dispatch])
+
 	return (
 		<>
 			<Header />
@@ -24,7 +37,7 @@ function Home() {
 					<h2>Nossos Planos</h2>
 					<section className="plans">
 						{plans.map((plan) => (
-							<CardPlan key={plan.id}>
+							<CardPlan key={plan._id + plan.name}>
 								<h3>{plan.name}</h3>
 								<p>{plan.description}</p>
 								<button>Assine já</button>
@@ -42,8 +55,8 @@ function Home() {
 							</tr>
 						</thead>
 						<tbody>
-							{priceDDD.map((ddd) => (
-								<tr key={ddd.id}>
+							{priceDDD.map((ddd, index) => (
+								<tr key={ddd._id + index}>
 									<td>{ddd.origin}</td>
 									<td>{ddd.destiny}</td>
 									<td>{formatValue(ddd.price)}</td>
