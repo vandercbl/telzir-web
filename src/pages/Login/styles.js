@@ -29,16 +29,6 @@ export const BoxLogin = styled.div`
 		color: ${(props) => props.theme.primaryColor};
 		font-weight: 500;
 		text-align: center;
-	}
-
-	.demonstration {
-		font-size: 12px;
-		margin: 8px 0;
-		font-weight: 300;
-		text-align: right;
-
-		strong {
-			font-weight: 500;
-		}
+		margin-bottom: 24px;
 	}
 `

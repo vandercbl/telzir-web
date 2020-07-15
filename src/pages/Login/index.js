@@ -55,13 +55,6 @@ function Login() {
 		<PageLogin className="container">
 			<BoxLogin>
 				<h1>Área Administrativa</h1>
-				<p className="demonstration">
-					Para acesso de demonstração, <br />
-					login: <strong>admin@telzir.com</strong>
-					<br />
-					senha:
-					<strong>123456</strong>
-				</p>
 
 				<Formik
 					initialValues={formInitialValues}
@@ -74,7 +67,7 @@ function Login() {
 								<Form className="formSimulator">
 									<div className="field">
 										<label>Login</label>
-										<Field type="text" name="login" />
+										<Field type="text" name="login"/>
 										<ErrorMessage name="login" component="span" />
 									</div>
 									<div className="field">
