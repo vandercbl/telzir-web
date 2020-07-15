@@ -67,7 +67,7 @@ function Login() {
 								<Form className="formSimulator">
 									<div className="field">
 										<label>Login</label>
-										<Field type="text" name="login"/>
+										<Field type="email" name="login"/>
 										<ErrorMessage name="login" component="span" />
 									</div>
 									<div className="field">
