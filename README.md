@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Telzir - FaleMais
 
-## Available Scripts
+Projeto de processo seletivo.
 
-In the project directory, you can run:
+Com o novo produto FaleMais da Telzir o cliente adquire um plano e pode falar de graça até um determinado tempo (em minutos) e só paga os minutos excedentes. Os minutos excedentes tem um acréscimo de 10% sobre a tarifa normal do minuto. Os planos são FaleMais 30 (30 minutos), FaleMais 60 (60 minutos) e FaleMais 120 (120 minutos).
 
-### `yarn start`
+## Visualização Online
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[Link do projeto no ar](https://telzir-5785d.web.app/) - Hospedado no firebase.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Site Responsivo
 
-### `yarn test`
+Como a API está hospedada no Heroku no plano gratuito, quando fica inativo por um tempo ele desliga a aplicação, sendo assim adicionei uma função para dentro do horário comercial aos dias de semana para disparar uma requisição para API que está no Heroku não dormir, e fazendo com que a experiência do avaliador seja ruim pelos dados não serem carregados no momento da visualização, em todo caso, se isso ocorrer, basta dar um refresh na página e aguar alguns segundos para o Heroku irá iniciar a API novamente. (hospedagem gratuita dá nisso...rs)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Uso
 
-### `yarn build`
+Rodar "npm install" ou "yarn add" para instalar os módulos.
+Para executar o aplicativo "yarn start"
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Teste
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Para rodar o teste, executar "yarn test"
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Dados da API
 
-### `yarn eject`
+Todas os dados dos planos e preços são carregados diretamente da API [Repositório Git](https://github.com/vandercbl/telzir-api) que está hospedada online no Heroku (plano gratuito)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Área Administrativa
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+É possível incluir e excluir valores das chamadas DDD.
+Para acessar - login: teste@teste.com / senha: 987654
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Recursos Utilizados
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- React
+- Redux Toolkit
+- Styled Components
+- Axios
+- Formik
+- Yup
+- React Router Dom
+- Jest (para teste)
