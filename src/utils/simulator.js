@@ -1,10 +1,14 @@
-import listPlans from '../fake-data/plans'
-import priceDDD from '../fake-data/price-ddd'
-
-function simulator(origin, destiny, minutesCall, plan) {
-	const minutesPlan = timePlan(plan)
-	const tariffCall = tariffDDD(origin, destiny)
-	const timeBalance = minutesCall - minutesPlan
+function simulator(
+	origin,
+	destiny,
+	minutesCall,
+	plan,
+	listPlans,
+	listPriceDDD,
+) {
+	const minutesPlan = Number(timePlan(plan, listPlans))
+	const tariffCall = Number(tariffDDD(origin, destiny, listPriceDDD))
+	const timeBalance = Number(minutesCall - minutesPlan)
 	const totalWithPlan = calcWithPlan(timeBalance, tariffCall)
 	const totalWithoutPlan = calcWithoutPlan(minutesCall, tariffCall)
 	return {
@@ -26,13 +30,13 @@ function calcWithoutPlan(minutes, tariff) {
 	return minutes * tariff
 }
 
-function timePlan(plan) {
+function timePlan(plan, listPlans) {
 	const itemPlan = listPlans.find((item) => item.name === plan)
 	return itemPlan.minutes
 }
 
-function tariffDDD(origin, destiny) {
-	const tariff = priceDDD.find(
+function tariffDDD(origin, destiny, listPriceDDD) {
+	const tariff = listPriceDDD.find(
 		(item) => item.origin === origin && item.destiny === destiny,
 	)
 	return tariff.price

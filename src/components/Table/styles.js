@@ -11,8 +11,12 @@ export const ContainerTable = styled.table`
 
 	th,
 	td {
-		padding: 8px 24px;
+		padding: 8px 6px;
 		text-align: center;
+
+		@media (min-width: 768px) {
+			padding: 8px 24px;
+		}
 	}
 
 	td {

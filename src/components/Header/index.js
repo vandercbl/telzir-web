@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { GrUserAdmin } from 'react-icons/gr'
 
 import { ContainerHeader } from './styles'
 
@@ -14,6 +15,9 @@ function Header() {
 				<nav>
 					<Link to="/">Home</Link>
 					<Link to="/simulacao">Simulação</Link>
+					<Link to="/login" title="Área Administrativa">
+						<GrUserAdmin />
+					</Link>
 				</nav>
 			</div>
 		</ContainerHeader>

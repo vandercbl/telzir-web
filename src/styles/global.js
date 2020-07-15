@@ -35,6 +35,7 @@ body, input, button, select {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	color: #333;
+	border-radius: 10px;
 }
 
 button {
@@ -51,6 +52,11 @@ button {
 	}
 	&:active {
 		outline: none;
+	}
+
+	&:disabled {
+		background: #ccc;
+		opacity: 0.5
 	}
 
 
@@ -70,5 +76,37 @@ h2 {
 	width: 100%; */
 	position: relative;
 }
+
+.field {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		width: 100%;
+		padding-bottom: 20px;
+		margin-bottom: 8px;
+
+		span {
+			position: absolute;
+			font-size: 0.7rem;
+			bottom: 0;
+			color: #dc2525;
+		}
+
+		label {
+			margin-bottom: 4px;
+			font-weight: 500;
+			padding-left: 4px;
+		}
+
+		input,
+		select {
+			border: 0;
+			background: #fff;
+			padding: 8px;
+			border: 1px solid #dedede;
+			height: 38px;
+			font-size: 1rem;
+		}
+	}
 
 `

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import Header from './../../components/Header'
 import Banner from '../../components/Banner'
@@ -10,9 +11,6 @@ import { formatValue } from '../../utils/formatValue'
 
 import { getListPlansFetch } from '../../store/fetchAction/plans'
 import { getListPriceDDDFetch } from '../../store/fetchAction/priceDDD'
-
-// import priceDDD from '../../fake-data/price-ddd'
-// import plans from '../../fake-data/plans'
 
 import { PageHome, CardPlan } from './styles'
 
@@ -31,6 +29,9 @@ function Home() {
 			<Header />
 			<Banner>
 				<h3>Especialistas em chamadas de longa distância nacional</h3>
+				<Link to="/simulacao">
+					<button type="button">Simular Planos</button>
+				</Link>
 			</Banner>
 			<PageHome>
 				<div className="container">

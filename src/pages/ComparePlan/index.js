@@ -16,8 +16,6 @@ import {
 	getListPriceDDDFetch,
 	getListOriginDDDFetch,
 } from '../../store/fetchAction/priceDDD'
-// import priceDDD from '../../fake-data/price-ddd'
-// import plans from '../../fake-data/plans'
 
 import { PageComparePlan, ResultSimulator } from './styles'
 
@@ -60,9 +58,14 @@ function ComparePlan() {
 		plan: yup.string().required('Plano obrigatório'),
 	})
 
-	const handlSubmit = useCallback(({ origin, destiny, minutes, plan }) => {
-		setResultSimulator(simulator(origin, destiny, minutes, plan))
-	}, [])
+	const handlSubmit = useCallback(
+		({ origin, destiny, minutes, plan }) => {
+			setResultSimulator(
+				simulator(origin, destiny, minutes, plan, plans, priceDDD),
+			)
+		},
+		[plans, priceDDD],
+	)
 
 	const handleOrigin = useCallback(
 		(e, Formik) => {

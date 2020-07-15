@@ -21,6 +21,7 @@ export const ContainerHeader = styled.header`
 			font-weight: 500;
 			padding: 4px 8px;
 			position: relative;
+			vertical-align: middle;
 
 			&:after {
 				content: '';
@@ -36,6 +37,10 @@ export const ContainerHeader = styled.header`
 				&:after {
 					width: 90%;
 				}
+			}
+
+			svg {
+				font-size: 1.1rem;
 			}
 		}
 	}
